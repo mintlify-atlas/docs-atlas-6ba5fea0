@@ -1,0 +1,193 @@
+{
+  "projectType": "frontend",
+  "projectName": "Magic UI",
+  "projectDescription": "A collection of animated React components and effects for building beautiful landing pages.",
+  "theme": "willow",
+  "primaryColor": "#9E7AFF",
+  "lightColor": "#FE8BBB",
+  "darkColor": "#7C3AED",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "installation",
+              "mcp-integration"
+            ]
+          },
+          {
+            "group": "Text Components",
+            "pages": [
+              "components/animated-gradient-text",
+              "components/animated-shiny-text",
+              "components/aurora-text",
+              "components/blur-fade",
+              "components/comic-text",
+              "components/flip-text",
+              "components/hyper-text",
+              "components/line-shadow-text",
+              "components/morphing-text",
+              "components/sparkles-text",
+              "components/spinning-text",
+              "components/text-reveal",
+              "components/typing-animation",
+              "components/video-text",
+              "components/word-rotate"
+            ]
+          },
+          {
+            "group": "Background Components",
+            "pages": [
+              "components/animated-grid-pattern",
+              "components/dot-pattern",
+              "components/flickering-grid",
+              "components/grid-pattern",
+              "components/interactive-grid-pattern",
+              "components/meteors",
+              "components/particles",
+              "components/progressive-blur",
+              "components/retro-grid",
+              "components/ripple",
+              "components/striped-pattern",
+              "components/warp-background"
+            ]
+          },
+          {
+            "group": "Card & Container Components",
+            "pages": [
+              "components/bento-grid",
+              "components/border-beam",
+              "components/magic-card",
+              "components/neon-gradient-card"
+            ]
+          },
+          {
+            "group": "Animation & Effects",
+            "pages": [
+              "components/animated-beam",
+              "components/animated-circular-progress-bar",
+              "components/animated-list",
+              "components/confetti",
+              "components/cool-mode",
+              "components/lens",
+              "components/number-ticker",
+              "components/orbiting-circles",
+              "components/pointer",
+              "components/scroll-progress",
+              "components/smooth-cursor"
+            ]
+          },
+          {
+            "group": "UI Elements",
+            "pages": [
+              "components/animated-theme-toggler",
+              "components/avatar-circles",
+              "components/dock",
+              "components/highlighter",
+              "components/marquee",
+              "components/script-copy-btn",
+              "components/shimmer-button",
+              "components/safari",
+              "components/shine-border",
+              "components/tweet-card"
+            ]
+          },
+          {
+            "group": "Media & Visualization",
+            "pages": [
+              "components/android",
+              "components/code-comparison",
+              "components/dotted-map",
+              "components/file-tree",
+              "components/globe",
+              "components/hero-video-dialog",
+              "components/icon-cloud",
+              "components/iphone-15-pro"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Templates",
+        "groups": [
+          {
+            "group": "Landing Pages",
+            "pages": [
+              "templates/overview",
+              "templates/saas",
+              "templates/startup",
+              "templates/portfolio",
+              "templates/blog",
+              "templates/agent",
+              "templates/devtool",
+              "templates/mobile",
+              "templates/codeforge",
+              "templates/changelog"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "About",
+            "pages": [
+              "story",
+              "contributing"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "69+ animated React components with motion effects",
+    "Copy-paste installation with shadcn CLI",
+    "Built with TypeScript, Motion, and Tailwind CSS",
+    "Pre-built landing page templates for SaaS and startups",
+    "MCP server integration for AI-assisted development",
+    "Dark mode support and full customization"
+  ],
+  "publicApiSurface": [
+    "MagicCard",
+    "AnimatedBeam",
+    "AnimatedGradientText",
+    "AnimatedShinyText",
+    "AuroraText",
+    "BentoGrid",
+    "BorderBeam",
+    "BlurFade",
+    "Confetti",
+    "CoolMode",
+    "DotPattern",
+    "Dock",
+    "FlickeringGrid",
+    "Globe",
+    "GridPattern",
+    "HeroVideoDialog",
+    "HyperText",
+    "IconCloud",
+    "Lens",
+    "Marquee",
+    "Meteors",
+    "MorphingText",
+    "NeonGradientCard",
+    "NumberTicker",
+    "OrbitingCircles",
+    "Particles",
+    "ProgressiveBlur",
+    "Ripple",
+    "RetroGrid",
+    "ScrollProgress",
+    "ShimmerButton",
+    "SparklesText",
+    "TextReveal",
+    "TypingAnimation",
+    "WordRotate"
+  ]
+}
