@@ -1,0 +1,105 @@
+---
+title: Rainbow Button
+date: 2024-03-03
+description: A button with an animated rainbow gradient border effect.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="rainbow-button-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/rainbow-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+```bash
+npm install @radix-ui/react-slot class-variance-authority
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="rainbow-button" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+<Step>Add the required CSS animations</Step>
+
+Add the following animations to your global CSS file.
+
+```css title="app/globals.css" showLineNumbers
+@theme inline {
+  --animate-rainbow: rainbow 5s linear infinite;
+
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+```
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { RainbowButton } from "@/components/ui/rainbow-button"
+```
+
+```tsx showLineNumbers
+<RainbowButton>Rainbow Button</RainbowButton>
+```
+
+## Props
+
+| Prop        | Type                                       | Default     | Description                                          |
+| ----------- | ------------------------------------------ | ----------- | ---------------------------------------------------- |
+| `children`  | `React.ReactNode`                          | `-`         | The content of the button.                           |
+| `className` | `string`                                   | `-`         | Additional class names for the button.               |
+| `variant`   | `"default" \| "outline"`                   | `"default"` | The visual variant of the button.                    |
+| `size`      | `"default" \| "sm" \| "lg" \| "icon"`      | `"default"` | The size of the button.                              |
+| `asChild`   | `boolean`                                  | `false`     | Use Slot to compose with other components.           |
+| ...rest     | `React.ButtonHTMLAttributes<HTMLButtonElement>` | `-`     | All standard button HTML attributes are supported.   |
+
+## Examples
+
+### Outline Variant
+
+```tsx showLineNumbers
+<RainbowButton variant="outline">Outline Rainbow</RainbowButton>
+```
+
+### Different Sizes
+
+```tsx showLineNumbers
+<RainbowButton size="sm">Small</RainbowButton>
+<RainbowButton size="lg">Large</RainbowButton>
+```

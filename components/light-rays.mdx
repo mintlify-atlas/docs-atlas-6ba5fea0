@@ -1,0 +1,72 @@
+---
+title: Light Rays
+date: 2024-03-03
+description: An animated light rays effect that creates a realistic lighting atmosphere with swinging rays.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="light-rays-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/light-rays
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="light-rays" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { LightRays } from "@/components/ui/light-rays"
+```
+
+```tsx showLineNumbers
+<div className="relative h-96 w-full">
+  <LightRays count={7} color="rgba(160, 210, 255, 0.2)" />
+</div>
+```
+
+## Props
+
+| Prop        | Type                                  | Default                      | Description                                                |
+| ----------- | ------------------------------------- | ---------------------------- | ---------------------------------------------------------- |
+| `count`     | `number`                              | `7`                          | The number of light rays to render.                        |
+| `color`     | `string`                              | `rgba(160, 210, 255, 0.2)`   | The color of the light rays (CSS color value).             |
+| `blur`      | `number`                              | `36`                         | The blur amount in pixels.                                 |
+| `speed`     | `number`                              | `14`                         | The animation speed (cycle duration in seconds).           |
+| `length`    | `string`                              | `70vh`                       | The length of the rays (CSS length value).                 |
+| `className` | `string`                              | `-`                          | Additional class names for the container.                  |
+| `ref`       | `React.Ref<HTMLDivElement>`           | `-`                          | Ref for the container element.                             |
+| ...rest     | `React.HTMLAttributes<HTMLDivElement>` | `-`                          | All standard div HTML attributes are supported.            |

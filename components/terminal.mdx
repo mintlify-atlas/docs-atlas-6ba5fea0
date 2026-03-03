@@ -1,0 +1,131 @@
+---
+title: Terminal
+date: 2024-03-03
+description: A terminal-styled component with typing animations and sequential text display.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="terminal-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/terminal
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="terminal" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Terminal, TypingAnimation, AnimatedSpan } from "@/components/ui/terminal"
+```
+
+```tsx showLineNumbers
+<Terminal>
+  <TypingAnimation>$ npm install</TypingAnimation>
+  <AnimatedSpan>Installing packages...</AnimatedSpan>
+</Terminal>
+```
+
+## Components
+
+### Terminal
+
+The main container component that creates the terminal window.
+
+| Prop          | Type              | Default | Description                                              |
+| ------------- | ----------------- | ------- | -------------------------------------------------------- |
+| `children`    | `React.ReactNode` | `-`     | The terminal content (TypingAnimation, AnimatedSpan).    |
+| `className`   | `string`          | `-`     | Additional class names for the terminal.                 |
+| `sequence`    | `boolean`         | `true`  | Whether to sequence animations of children.              |
+| `startOnView` | `boolean`         | `true`  | Whether to start animation when in view.                 |
+
+### TypingAnimation
+
+Animates text with a typing effect.
+
+| Prop          | Type              | Default | Description                                              |
+| ------------- | ----------------- | ------- | -------------------------------------------------------- |
+| `children`    | `string`          | `-`     | The text to animate (must be a string).                  |
+| `className`   | `string`          | `-`     | Additional class names.                                  |
+| `duration`    | `number`          | `60`    | Duration between each character in milliseconds.         |
+| `delay`       | `number`          | `0`     | Delay before animation starts in milliseconds.           |
+| `as`          | `React.ElementType` | `"span"` | The element type to render.                            |
+| `startOnView` | `boolean`         | `true`  | Whether to start animation when in view.                 |
+| ...rest       | `MotionProps`     | `-`     | All motion props are supported.                          |
+
+### AnimatedSpan
+
+Animates a block of content with fade and slide effect.
+
+| Prop          | Type              | Default | Description                                              |
+| ------------- | ----------------- | ------- | -------------------------------------------------------- |
+| `children`    | `React.ReactNode` | `-`     | The content to animate.                                  |
+| `className`   | `string`          | `-`     | Additional class names.                                  |
+| `delay`       | `number`          | `0`     | Delay before animation starts in milliseconds.           |
+| `startOnView` | `boolean`         | `false` | Whether to start animation when in view.                 |
+| ...rest       | `MotionProps`     | `-`     | All motion props are supported.                          |
+
+## Examples
+
+### Sequential Commands
+
+```tsx showLineNumbers
+<Terminal sequence={true}>
+  <TypingAnimation>$ git clone repo</TypingAnimation>
+  <AnimatedSpan>Cloning into 'repo'...</AnimatedSpan>
+  <TypingAnimation>$ cd repo</TypingAnimation>
+  <AnimatedSpan>Changed directory</AnimatedSpan>
+</Terminal>
+```
+
+### Custom Typing Speed
+
+```tsx showLineNumbers
+<Terminal>
+  <TypingAnimation duration={100}>Slow typing effect</TypingAnimation>
+  <TypingAnimation duration={30}>Fast typing effect</TypingAnimation>
+</Terminal>
+```
+
+### Without Sequence
+
+```tsx showLineNumbers
+<Terminal sequence={false}>
+  <AnimatedSpan delay={0}>Line 1</AnimatedSpan>
+  <AnimatedSpan delay={200}>Line 2</AnimatedSpan>
+  <AnimatedSpan delay={400}>Line 3</AnimatedSpan>
+</Terminal>
+```

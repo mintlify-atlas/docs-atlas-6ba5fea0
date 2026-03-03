@@ -1,0 +1,142 @@
+---
+title: Text Animate
+date: 2024-03-03
+description: A versatile text animation component with multiple animation presets and customization options.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="text-animate-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/text-animate
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="text-animate" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { TextAnimate } from "@/components/ui/text-animate"
+```
+
+```tsx showLineNumbers
+<TextAnimate animation="fadeIn">
+  Beautiful animated text
+</TextAnimate>
+```
+
+## Props
+
+| Prop               | Type                                                                                                                      | Default   | Description                                              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------- |
+| `children`         | `string`                                                                                                                  | `-`       | The text content to animate (required).                  |
+| `className`        | `string`                                                                                                                  | `-`       | Additional class names for the component.                |
+| `segmentClassName` | `string`                                                                                                                  | `-`       | Class names applied to each animated segment.            |
+| `delay`            | `number`                                                                                                                  | `0`       | Delay before animation starts in seconds.                |
+| `duration`         | `number`                                                                                                                  | `0.3`     | Duration of the animation in seconds.                    |
+| `variants`         | `Variants`                                                                                                                | `-`       | Custom motion variants for advanced customization.       |
+| `as`               | `ElementType`                                                                                                             | `"p"`     | The HTML element type to render.                         |
+| `by`               | `"text" \| "word" \| "character" \| "line"`                                                                             | `"word"` | How to split the text for animation.                     |
+| `startOnView`      | `boolean`                                                                                                                 | `true`    | Whether to start animation when entering viewport.       |
+| `once`             | `boolean`                                                                                                                 | `false`   | Whether to animate only once.                            |
+| `animation`        | `"fadeIn" \| "blurIn" \| "blurInUp" \| "blurInDown" \| "slideUp" \| "slideDown" \| "slideLeft" \| "slideRight" \| "scaleUp" \| "scaleDown"` | `"fadeIn"` | The animation preset to use.                    |
+| `accessible`       | `boolean`                                                                                                                 | `true`    | Whether to enable accessibility features.                |
+| ...rest            | `MotionProps`                                                                                                             | `-`       | All motion props are supported.                          |
+
+## Animation Presets
+
+The component includes 10 built-in animation presets:
+
+- `fadeIn` - Fade in with slight upward movement
+- `blurIn` - Blur in effect
+- `blurInUp` - Blur in with upward movement
+- `blurInDown` - Blur in with downward movement
+- `slideUp` - Slide up from below
+- `slideDown` - Slide down from above
+- `slideLeft` - Slide in from right
+- `slideRight` - Slide in from left
+- `scaleUp` - Scale up from small
+- `scaleDown` - Scale down from large
+
+## Examples
+
+### Animate by Character
+
+```tsx showLineNumbers
+<TextAnimate by="character" animation="slideUp">
+  Character animation
+</TextAnimate>
+```
+
+### Blur Effect
+
+```tsx showLineNumbers
+<TextAnimate animation="blurInUp" duration={0.5}>
+  Blur in from below
+</TextAnimate>
+```
+
+### Custom Element Type
+
+```tsx showLineNumbers
+<TextAnimate as="h1" animation="scaleUp" className="text-4xl font-bold">
+  Animated Heading
+</TextAnimate>
+```
+
+### Animate by Line
+
+```tsx showLineNumbers
+<TextAnimate by="line" animation="slideRight">
+  First line{"\n"}
+  Second line{"\n"}
+  Third line
+</TextAnimate>
+```
+
+### With Custom Variants
+
+```tsx showLineNumbers
+<TextAnimate
+  variants={{
+    hidden: { opacity: 0, rotate: -45 },
+    show: { opacity: 1, rotate: 0 },
+  }}
+  duration={1}
+>
+  Custom animation
+</TextAnimate>
+```

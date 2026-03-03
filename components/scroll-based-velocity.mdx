@@ -1,0 +1,108 @@
+---
+title: Scroll Based Velocity
+date: 2024-03-03
+description: A component that creates a scrolling velocity effect based on page scroll.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="scroll-based-velocity-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/scroll-based-velocity
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="scroll-based-velocity" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { ScrollVelocityContainer, ScrollVelocityRow } from "@/components/ui/scroll-based-velocity"
+```
+
+```tsx showLineNumbers
+<ScrollVelocityContainer>
+  <ScrollVelocityRow baseVelocity={5}>
+    <span>Scroll to see the effect • </span>
+  </ScrollVelocityRow>
+</ScrollVelocityContainer>
+```
+
+## Components
+
+### ScrollVelocityContainer
+
+Wrapper component that provides scroll velocity context to child rows.
+
+| Prop        | Type                                  | Default | Description                                          |
+| ----------- | ------------------------------------- | ------- | ---------------------------------------------------- |
+| `children`  | `React.ReactNode`                     | `-`     | The ScrollVelocityRow components.                    |
+| `className` | `string`                              | `-`     | Additional class names for the container.            |
+| ...rest     | `React.HTMLAttributes<HTMLDivElement>` | `-`    | All standard div HTML attributes are supported.      |
+
+### ScrollVelocityRow
+
+A row that moves based on scroll velocity.
+
+| Prop           | Type                                  | Default | Description                                          |
+| -------------- | ------------------------------------- | ------- | ---------------------------------------------------- |
+| `children`     | `React.ReactNode`                     | `-`     | The content to scroll (will be duplicated).          |
+| `baseVelocity` | `number`                              | `5`     | Base scrolling speed.                                |
+| `direction`    | `1 \| -1`                             | `1`     | Direction of scroll (1 for right, -1 for left).      |
+| `className`    | `string`                              | `-`     | Additional class names for the row.                  |
+| ...rest        | `React.HTMLAttributes<HTMLDivElement>` | `-`    | All standard div HTML attributes are supported.      |
+
+## Examples
+
+### Multiple Rows
+
+```tsx showLineNumbers
+<ScrollVelocityContainer>
+  <ScrollVelocityRow baseVelocity={5}>
+    <span>First row • </span>
+  </ScrollVelocityRow>
+  <ScrollVelocityRow baseVelocity={-3}>
+    <span>Second row (reverse) • </span>
+  </ScrollVelocityRow>
+</ScrollVelocityContainer>
+```
+
+### Independent Row (without container)
+
+```tsx showLineNumbers
+<ScrollVelocityRow baseVelocity={10} direction={-1}>
+  <span>Independent row • </span>
+</ScrollVelocityRow>
+```

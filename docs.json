@@ -44,6 +44,7 @@
               "components/morphing-text",
               "components/sparkles-text",
               "components/spinning-text",
+              "components/text-animate",
               "components/text-reveal",
               "components/typing-animation",
               "components/video-text",
@@ -58,6 +59,7 @@
               "components/flickering-grid",
               "components/grid-pattern",
               "components/interactive-grid-pattern",
+              "components/light-rays",
               "components/meteors",
               "components/particles",
               "components/progressive-blur",
@@ -88,6 +90,7 @@
               "components/number-ticker",
               "components/orbiting-circles",
               "components/pointer",
+              "components/scroll-based-velocity",
               "components/scroll-progress",
               "components/smooth-cursor"
             ]
@@ -95,12 +98,18 @@
           {
             "group": "UI Elements",
             "pages": [
+              "components/animated-subscribe-button",
               "components/animated-theme-toggler",
               "components/avatar-circles",
               "components/dock",
               "components/highlighter",
+              "components/interactive-hover-button",
               "components/marquee",
+              "components/pulsating-button",
+              "components/rainbow-button",
+              "components/ripple-button",
               "components/shimmer-button",
+              "components/shiny-button",
               "components/safari",
               "components/shine-border",
               "components/tweet-card"
@@ -116,7 +125,9 @@
               "components/globe",
               "components/hero-video-dialog",
               "components/icon-cloud",
-              "components/iphone"
+              "components/iphone",
+              "components/pixel-image",
+              "components/terminal"
             ]
           }
         ]

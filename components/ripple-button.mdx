@@ -1,0 +1,97 @@
+---
+title: Ripple Button
+date: 2024-03-03
+description: A button with a ripple effect that animates from the click position.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="ripple-button-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/ripple-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="ripple-button" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+<Step>Add the required CSS animations</Step>
+
+Add the following animations to your global CSS file.
+
+```css title="app/globals.css" showLineNumbers
+@theme inline {
+  --animate-rippling: rippling var(--duration) ease-out;
+
+  @keyframes rippling {
+    0% {
+      transform: scale(0);
+      opacity: 0.3;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}
+```
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { RippleButton } from "@/components/ui/ripple-button"
+```
+
+```tsx showLineNumbers
+<RippleButton>Click Me</RippleButton>
+```
+
+## Props
+
+| Prop          | Type                                       | Default     | Description                                          |
+| ------------- | ------------------------------------------ | ----------- | ---------------------------------------------------- |
+| `children`    | `React.ReactNode`                          | `-`         | The content of the button.                           |
+| `className`   | `string`                                   | `-`         | Additional class names for the button.               |
+| `rippleColor` | `string`                                   | `#ffffff`   | The color of the ripple effect.                      |
+| `duration`    | `string`                                   | `600ms`     | The duration of the ripple animation.                |
+| `onClick`     | `(event: MouseEvent<HTMLButtonElement>) => void` | `-` | Click event handler.                                 |
+| ...rest       | `React.ButtonHTMLAttributes<HTMLButtonElement>` | `-` | All standard button HTML attributes are supported.   |
+
+## Examples
+
+### Custom Ripple Color
+
+```tsx showLineNumbers
+<RippleButton rippleColor="#ff0000">Red Ripple</RippleButton>
+```
+
+### Custom Duration
+
+```tsx showLineNumbers
+<RippleButton duration="1000ms">Slow Ripple</RippleButton>
+```

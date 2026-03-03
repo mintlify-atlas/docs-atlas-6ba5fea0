@@ -1,0 +1,86 @@
+---
+title: Shiny Button
+date: 2024-03-03
+description: A button with an animated shiny effect that sweeps across the text.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="shiny-button-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/shiny-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="shiny-button" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { ShinyButton } from "@/components/ui/shiny-button"
+```
+
+```tsx showLineNumbers
+<ShinyButton>Shiny Button</ShinyButton>
+```
+
+## Props
+
+| Prop        | Type                                       | Default | Description                                          |
+| ----------- | ------------------------------------------ | ------- | ---------------------------------------------------- |
+| `children`  | `React.ReactNode`                          | `-`     | The content of the button.                           |
+| `className` | `string`                                   | `-`     | Additional class names for the button.               |
+| ...rest     | Extends both `MotionProps` and `React.HTMLAttributes<HTMLElement>` | `-` | Supports all motion and HTML attributes. |
+
+## Examples
+
+### Custom Styling
+
+```tsx showLineNumbers
+<ShinyButton className="bg-blue-500 text-white">
+  Custom Shiny Button
+</ShinyButton>
+```
+
+### With Motion Props
+
+```tsx showLineNumbers
+<ShinyButton 
+  whileHover={{ scale: 1.05 }}
+  transition={{ duration: 0.2 }}
+>
+  Hover to Scale
+</ShinyButton>
+```

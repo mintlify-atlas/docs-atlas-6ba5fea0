@@ -1,0 +1,128 @@
+---
+title: Animated Subscribe Button
+date: 2024-03-03
+description: An animated button that transitions between subscribed and unsubscribed states.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="animated-subscribe-button-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/animated-subscribe-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="animated-subscribe-button" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { AnimatedSubscribeButton } from "@/components/ui/animated-subscribe-button"
+```
+
+```tsx showLineNumbers
+<AnimatedSubscribeButton>
+  <span>Subscribe</span>
+  <span>Subscribed</span>
+</AnimatedSubscribeButton>
+```
+
+## Props
+
+| Prop              | Type                                       | Default | Description                                          |
+| ----------------- | ------------------------------------------ | ------- | ---------------------------------------------------- |
+| `children`        | `React.ReactNode`                          | `-`     | Must be exactly two `<span>` elements.               |
+| `subscribeStatus` | `boolean`                                  | `-`     | Controlled state for subscription status.            |
+| `className`       | `string`                                   | `-`     | Additional class names for the button.               |
+| `onClick`         | `(event: MouseEvent<HTMLButtonElement>) => void` | `-` | Click event handler.                            |
+| ...rest           | `HTMLMotionProps<"button">`                | `-`     | All motion button props are supported.               |
+
+## Important Notes
+
+- The component requires **exactly two children**, both must be `<span>` elements
+- First `<span>` is shown in the unsubscribed state
+- Second `<span>` is shown in the subscribed state
+- Can be used as controlled or uncontrolled component
+
+## Examples
+
+### Uncontrolled (Default)
+
+```tsx showLineNumbers
+<AnimatedSubscribeButton>
+  <span>Subscribe</span>
+  <span>Subscribed ✓</span>
+</AnimatedSubscribeButton>
+```
+
+### Controlled State
+
+```tsx showLineNumbers
+const [isSubscribed, setIsSubscribed] = useState(false)
+
+<AnimatedSubscribeButton
+  subscribeStatus={isSubscribed}
+  onClick={() => setIsSubscribed(!isSubscribed)}
+>
+  <span>Subscribe to Newsletter</span>
+  <span>You're Subscribed!</span>
+</AnimatedSubscribeButton>
+```
+
+### With Icons
+
+```tsx showLineNumbers
+import { Bell, BellOff } from "lucide-react"
+
+<AnimatedSubscribeButton>
+  <span className="flex items-center gap-2">
+    <Bell className="size-4" />
+    Subscribe
+  </span>
+  <span className="flex items-center gap-2">
+    <BellOff className="size-4" />
+    Unsubscribe
+  </span>
+</AnimatedSubscribeButton>
+```
+
+### Custom Styling
+
+```tsx showLineNumbers
+<AnimatedSubscribeButton className="bg-gradient-to-r from-purple-500 to-pink-500">
+  <span>Follow</span>
+  <span>Following</span>
+</AnimatedSubscribeButton>
+```

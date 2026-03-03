@@ -1,0 +1,59 @@
+---
+title: Interactive Hover Button
+date: 2024-03-03
+description: A button with an interactive hover effect that reveals an arrow and animates the text.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="interactive-hover-button-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/interactive-hover-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="interactive-hover-button" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
+```
+
+```tsx showLineNumbers
+<InteractiveHoverButton>Hover Me</InteractiveHoverButton>
+```
+
+## Props
+
+| Prop        | Type                                       | Default | Description                                          |
+| ----------- | ------------------------------------------ | ------- | ---------------------------------------------------- |
+| `children`  | `React.ReactNode`                          | `-`     | The content of the button.                           |
+| `className` | `string`                                   | `-`     | Additional class names for the button.               |
+| ...rest     | `React.ButtonHTMLAttributes<HTMLButtonElement>` | `-`     | All standard button HTML attributes are supported.   |

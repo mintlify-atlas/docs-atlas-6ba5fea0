@@ -1,0 +1,85 @@
+---
+title: Pixel Image
+date: 2024-03-03
+description: An image component that reveals itself with a pixelated fade-in animation effect.
+author: magicui
+published: true
+---
+
+<ComponentPreview name="pixel-image-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/pixel-image
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="pixel-image" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { PixelImage } from "@/components/ui/pixel-image"
+```
+
+```tsx showLineNumbers
+<PixelImage src="/image.jpg" grid="8x8" />
+```
+
+## Props
+
+| Prop                    | Type                                    | Default | Description                                                          |
+| ----------------------- | --------------------------------------- | ------- | -------------------------------------------------------------------- |
+| `src`                   | `string`                                | `-`     | The image source URL (required).                                     |
+| `grid`                  | `"6x4" \| "8x8" \| "8x3" \| "4x6" \| "3x8"` | `"6x4"` | Predefined grid size for the pixel effect.                           |
+| `customGrid`            | `{ rows: number, cols: number }`        | `-`     | Custom grid size (1-16 for both rows and cols).                      |
+| `grayscaleAnimation`    | `boolean`                               | `true`  | Whether to animate from grayscale to color.                          |
+| `pixelFadeInDuration`   | `number`                                | `1000`  | Duration of the fade-in animation in milliseconds.                   |
+| `maxAnimationDelay`     | `number`                                | `1200`  | Maximum random delay for pixel animations in milliseconds.           |
+| `colorRevealDelay`      | `number`                                | `1300`  | Delay before revealing color in milliseconds.                        |
+
+## Examples
+
+### Custom Grid Size
+
+```tsx showLineNumbers
+<PixelImage 
+  src="/image.jpg" 
+  customGrid={{ rows: 10, cols: 10 }}
+  pixelFadeInDuration={1500}
+/>
+```
+
+### Without Grayscale Animation
+
+```tsx showLineNumbers
+<PixelImage 
+  src="/image.jpg" 
+  grid="8x8"
+  grayscaleAnimation={false}
+/>
+```
