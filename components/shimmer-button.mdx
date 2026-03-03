@@ -1,0 +1,101 @@
+---
+title: Shimmer Button
+description: A button with an animated shimmering border light effect
+---
+
+A captivating button component featuring a shimmering light that travels around the perimeter.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/shimmer-button
+```
+
+```bash Manual
+# Copy the component and add required CSS animations
+```
+</CodeGroup>
+
+### Required CSS
+
+Add these animations to your global CSS:
+
+```css
+@theme inline {
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+
+  @keyframes shimmer-slide {
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  @keyframes spin-around {
+    0% {
+      transform: translateZ(0) rotate(0);
+    }
+    15%, 35% {
+      transform: translateZ(0) rotate(90deg);
+    }
+    65%, 85% {
+      transform: translateZ(0) rotate(270deg);
+    }
+    100% {
+      transform: translateZ(0) rotate(360deg);
+    }
+  }
+}
+```
+
+## Usage
+
+```tsx
+import { ShimmerButton } from "@/components/ui/shimmer-button"
+
+export default function Example() {
+  return <ShimmerButton>Click me</ShimmerButton>
+}
+```
+
+## Props
+
+<ResponseField name="shimmerColor" type="string" default="'#ffffff'">
+  Color of the shimmering light effect
+</ResponseField>
+
+<ResponseField name="shimmerSize" type="string" default="'0.05em'">
+  Size of the shimmer effect
+</ResponseField>
+
+<ResponseField name="borderRadius" type="string" default="'100px'">
+  Border radius of the button
+</ResponseField>
+
+<ResponseField name="shimmerDuration" type="string" default="'3s'">
+  Duration of the shimmer animation
+</ResponseField>
+
+<ResponseField name="background" type="string" default="'rgba(0, 0, 0, 1)'">
+  Background color of the button
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply
+</ResponseField>
+
+<ResponseField name="children" type="React.ReactNode">
+  Button content
+</ResponseField>
+
+## Features
+
+- Animated shimmer border effect
+- Customizable colors and timing
+- Smooth hover interactions
+- Active state with press feedback
+- Fully customizable with Tailwind CSS
+
+## Credits
+
+Inspired by [@jh3yy](https://twitter.com/jh3yy/status/1656423856276488192)

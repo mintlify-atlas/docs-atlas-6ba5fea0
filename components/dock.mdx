@@ -1,0 +1,100 @@
+---
+title: Dock
+description: A macOS-style dock component with magnification effects on hover
+---
+
+An implementation of the macOS dock using React, Tailwind CSS, and Framer Motion with smooth magnification animations.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/dock
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { Dock, DockIcon } from "@/components/ui/dock"
+import { Home, Search, Settings } from "lucide-react"
+
+export default function Example() {
+  return (
+    <Dock>
+      <DockIcon>
+        <Home />
+      </DockIcon>
+      <DockIcon>
+        <Settings />
+      </DockIcon>
+      <DockIcon>
+        <Search />
+      </DockIcon>
+    </Dock>
+  )
+}
+```
+
+## Dock Props
+
+<ResponseField name="iconSize" type="number" default="40">
+  Size of the dock icons in pixels
+</ResponseField>
+
+<ResponseField name="iconMagnification" type="number" default="60">
+  Maximum size of icons when magnified
+</ResponseField>
+
+<ResponseField name="iconDistance" type="number" default="140">
+  Distance from cursor at which magnification begins
+</ResponseField>
+
+<ResponseField name="direction" type="'top' | 'middle' | 'bottom'" default="'middle'">
+  Vertical alignment of dock items
+</ResponseField>
+
+<ResponseField name="disableMagnification" type="boolean" default="false">
+  Disable magnification effect on hover
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply
+</ResponseField>
+
+## DockIcon Props
+
+<ResponseField name="size" type="number" default="40">
+  Icon size (inherited from Dock if not specified)
+</ResponseField>
+
+<ResponseField name="magnification" type="number" default="60">
+  Magnification level (inherited from Dock if not specified)
+</ResponseField>
+
+<ResponseField name="distance" type="number" default="140">
+  Magnification distance (inherited from Dock if not specified)
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply
+</ResponseField>
+
+## Examples
+
+### Custom Direction
+
+Align icons to the top or bottom of the dock.
+
+### Custom Magnification
+
+Adjust the magnification strength and distance.
+
+## Credits
+
+- Inspired by [Build UI](https://buildui.com/recipes/magnified-dock)
+- Enhanced by [Ritesh Bucha](https://twitter.com/bucha_ritesh)

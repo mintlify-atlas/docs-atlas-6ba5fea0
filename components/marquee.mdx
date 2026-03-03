@@ -1,0 +1,107 @@
+---
+title: Marquee
+description: An infinite scrolling component for displaying text, images, or any content
+---
+
+Create smooth infinite scrolling animations for logos, testimonials, images, and more.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/marquee
+```
+
+```bash Manual
+# Copy the component and add required CSS animations
+```
+</CodeGroup>
+
+### Required CSS
+
+Add these animations to your global CSS:
+
+```css
+@theme inline {
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
+```
+
+## Usage
+
+```tsx
+import { Marquee } from "@/components/ui/marquee"
+
+export default function Example() {
+  return (
+    <Marquee>
+      <span>Next.js</span>
+      <span>React</span>
+      <span>TypeScript</span>
+      <span>Tailwind CSS</span>
+    </Marquee>
+  )
+}
+```
+
+## Props
+
+<ResponseField name="children" type="React.ReactNode" required>
+  Content to display in the marquee
+</ResponseField>
+
+<ResponseField name="reverse" type="boolean" default="false">
+  Reverse the animation direction
+</ResponseField>
+
+<ResponseField name="pauseOnHover" type="boolean" default="false">
+  Pause animation when hovering over the component
+</ResponseField>
+
+<ResponseField name="vertical" type="boolean" default="false">
+  Display marquee vertically instead of horizontally
+</ResponseField>
+
+<ResponseField name="repeat" type="number" default="4">
+  Number of times to repeat the content
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply
+</ResponseField>
+
+## Examples
+
+### Vertical Marquee
+
+Set `vertical={true}` for vertical scrolling.
+
+### 3D Effect
+
+Combine with transform utilities for 3D effects.
+
+## Features
+
+- Smooth infinite scrolling
+- Horizontal or vertical direction
+- Pause on hover
+- Customizable speed via CSS variables
+- Responsive and performant

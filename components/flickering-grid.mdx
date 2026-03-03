@@ -1,0 +1,118 @@
+---
+title: Flickering Grid
+description: A flickering grid background made with canvas, fully customizable using Tailwind CSS.
+---
+
+A performant canvas-based flickering grid that creates a dynamic background effect with randomly animated squares.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/flickering-grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+```tsx title="components/ui/flickering-grid.tsx"
+"use client"
+
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { cn } from "@/lib/utils"
+
+interface FlickeringGridProps extends React.HTMLAttributes<HTMLDivElement> {
+  squareSize?: number
+  gridGap?: number
+  flickerChance?: number
+  color?: string
+  width?: number
+  height?: number
+  className?: string
+  maxOpacity?: number
+}
+
+export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
+  squareSize = 4,
+  gridGap = 6,
+  flickerChance = 0.3,
+  color = "rgb(0, 0, 0)",
+  width,
+  height,
+  className,
+  maxOpacity = 0.3,
+  ...props
+}) => {
+  // Component implementation
+}
+```
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { FlickeringGrid } from "@/components/ui/flickering-grid"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <FlickeringGrid />
+    </div>
+  )
+}
+```
+
+### Rounded Squares
+
+```tsx
+import { FlickeringGrid } from "@/components/ui/flickering-grid"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden rounded-lg">
+      <FlickeringGrid squareSize={4} className="rounded-lg" />
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `squareSize` | `number` | `4` | Size of each square in the grid (in pixels) |
+| `gridGap` | `number` | `6` | Gap between squares in the grid (in pixels) |
+| `flickerChance` | `number` | `0.3` | Probability of a square flickering (0-1) |
+| `color` | `string` | `"rgb(0, 0, 0)"` | Color of the squares (any valid CSS color) |
+| `width` | `number` | `-` | Width of the canvas (auto-sizes to container if not set) |
+| `height` | `number` | `-` | Height of the canvas (auto-sizes to container if not set) |
+| `className` | `string` | `-` | Additional CSS classes for the canvas container |
+| `maxOpacity` | `number` | `0.3` | Maximum opacity of the squares (0-1) |
+
+<Note>
+This component uses canvas for optimal performance and automatically pauses animation when not in view using IntersectionObserver.
+</Note>
+
+<Tip>
+Adjust `flickerChance` to control how frequently squares change - lower values create more subtle effects.
+</Tip>

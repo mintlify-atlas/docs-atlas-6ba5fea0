@@ -1,0 +1,115 @@
+---
+title: Progressive Blur
+description: Add a progressive blur effect to scrollable content.
+---
+
+A progressive blur overlay that creates smooth fade-out effects at the edges of scrollable content.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/progressive-blur
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+```tsx title="components/ui/progressive-blur.tsx"
+"use client"
+
+import React from "react"
+import { cn } from "@/lib/utils"
+
+export interface ProgressiveBlurProps {
+  className?: string
+  height?: string
+  position?: "top" | "bottom" | "both"
+  blurLevels?: number[]
+  children?: React.ReactNode
+}
+
+export function ProgressiveBlur({
+  className,
+  height = "30%",
+  position = "bottom",
+  blurLevels = [0.5, 1, 2, 4, 8, 16, 32, 64],
+}: ProgressiveBlurProps) {
+  // Component implementation
+}
+```
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { ProgressiveBlur } from "@/components/ui/progressive-blur"
+
+export default function Example() {
+  return (
+    <div className="relative h-[400px] w-full overflow-auto">
+      <div className="space-y-4 p-4">
+        {/* Your scrollable content */}
+      </div>
+      
+      <ProgressiveBlur height="50%" position="bottom" />
+    </div>
+  )
+}
+```
+
+### Both Sides
+
+```tsx
+import { ProgressiveBlur } from "@/components/ui/progressive-blur"
+
+export default function Example() {
+  return (
+    <div className="relative h-[400px] w-full overflow-auto">
+      <div className="space-y-4 p-4">
+        {/* Your scrollable content */}
+      </div>
+      
+      <ProgressiveBlur position="both" />
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | `-` | Additional CSS classes to apply to the blur container |
+| `height` | `string` | `"30%"` | Height of the blur effect container |
+| `position` | `"top"` \| `"bottom"` \| `"both"` | `"bottom"` | Position where the blur effect should appear |
+| `blurLevels` | `number[]` | `[0.5, 1, 2, 4, 8, 16, 32, 64]` | Array of blur values in pixels for progressive effect |
+| `children` | `React.ReactNode` | `-` | Optional content to render within the blur container |
+
+<Note>
+The component uses CSS `backdrop-filter` to create the blur effect, which provides smooth progressive blurring at the edges.
+</Note>
+
+<Tip>
+Use `position="both"` for content that scrolls in both directions, or `position="top"` for bottom-to-top scrolling.
+</Tip>

@@ -1,0 +1,109 @@
+---
+title: Shine Border
+description: An animated border with a radial gradient shine effect
+---
+
+Create eye-catching containers with animated shining borders using CSS gradients.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/shine-border
+```
+
+```bash Manual
+# Copy the component and add required CSS animations
+```
+</CodeGroup>
+
+### Required CSS
+
+Add this animation to your global CSS:
+
+```css
+@theme inline {
+  --animate-shine: shine var(--duration) infinite linear;
+
+  @keyframes shine {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    to {
+      background-position: 0% 0%;
+    }
+  }
+}
+```
+
+## Usage
+
+```tsx
+import { ShineBorder } from "@/components/ui/shine-border"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden rounded-xl">
+      <ShineBorder shineColor="#FF6900" />
+      {/* Your content here */}
+    </div>
+  )
+}
+```
+
+## Props
+
+<ResponseField name="borderWidth" type="number" default="1">
+  Width of the border in pixels
+</ResponseField>
+
+<ResponseField name="duration" type="number" default="14">
+  Duration of the shine animation in seconds
+</ResponseField>
+
+<ResponseField name="shineColor" type="string | string[]" default="'#000000'">
+  Color(s) of the border. Can be a single color or array for gradients
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply
+</ResponseField>
+
+<ResponseField name="style" type="React.CSSProperties">
+  Additional inline styles
+</ResponseField>
+
+## Examples
+
+### Monotone Border
+
+```tsx
+<ShineBorder shineColor="#8B5CF6" />
+```
+
+### Multi-color Gradient
+
+```tsx
+<ShineBorder shineColor={["#8B5CF6", "#EC4899", "#EF4444"]} />
+```
+
+### Custom Duration
+
+```tsx
+<ShineBorder duration={8} shineColor="#3B82F6" />
+```
+
+## Features
+
+- Smooth radial gradient animation
+- Support for single or multiple colors
+- Customizable border width and speed
+- Works with rounded corners
+- Absolute positioning for easy layering
+
+## Credits
+
+Created by [unnamed-lab](https://github.com/unnamed-lab)

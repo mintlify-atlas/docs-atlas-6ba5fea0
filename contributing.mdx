@@ -1,0 +1,276 @@
+---
+title: Contributing
+description: Learn how to contribute components, effects, and improvements to Magic UI
+---
+
+Thank you for your interest in contributing to Magic UI! We appreciate your support and look forward to your contributions.
+
+## Quick Start
+
+Adding a new component only takes **around 10 minutes** and requires changes to just **5 files**.
+
+Read the [example PR](https://github.com/magicuidesign/magicui/pull/12) to see exactly which files you need to modify.
+
+## Getting Started
+
+<Steps>
+
+<Step>Fork the repository</Step>
+
+Click [here](https://github.com/magicuidesign/magicui/fork) to fork the repository.
+
+<Step>Clone your forked repository</Step>
+
+```bash
+git clone https://github.com/<YOUR_USERNAME>/magicui.git
+```
+
+<Step>Navigate to the project directory</Step>
+
+```bash
+cd magicui
+```
+
+<Step>Create a new branch</Step>
+
+```bash
+git checkout -b my-new-branch
+```
+
+<Step>Install dependencies</Step>
+
+```bash
+pnpm i
+```
+
+<Step>Create environment file</Step>
+
+```bash
+touch .env.local && echo "NEXT_PUBLIC_APP_URL=http://localhost:3000" > .env.local
+```
+
+<Step>Run the development server</Step>
+
+```bash
+pnpm dev
+```
+
+</Steps>
+
+## Adding a New Component
+
+### 1. Create Component
+
+Create the main component in `registry/magicui/example-component.tsx`:
+
+```typescript
+import React from 'react'
+
+export default function ExampleComponent() {
+  return (
+    <div>
+      This is your component.
+    </div>
+  )
+}
+```
+
+### 2. Create Component Demo
+
+Provide a basic example in `registry/example/example-component-demo.tsx`:
+
+```typescript
+import ExampleComponent from '@/registry/magicui/example-component'
+
+export default function ExampleComponentDemo() {
+  return (
+    <div className="relative justify-center">
+      <ExampleComponent />
+    </div>
+  )
+}
+```
+
+### 3. Update Sidebar
+
+Add your component to the sidebar in `config/docs.ts`:
+
+```typescript
+{
+    title: "Example Component",
+    href: `/docs/components/example-component`,
+    items: [],
+    label: "New",
+}
+```
+
+### 4. Create Documentation
+
+Create an MDX file in `content/docs/components/example-component.mdx`:
+
+````md
+---
+title: Example Component
+date: 2024-06-01
+description: Example component for Magic UI
+author: magicui
+published: true
+---
+
+<ComponentPreview name="example-component-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/example-component
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="example-component" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+<Step>Add the required CSS animations</Step>
+
+<Step>Add the following animations to your global CSS file inside the `@theme inline` block (e.g., `app/globals.css` or similar)</Step>
+
+```css title="app/globals.css" {1-2,4-18}
+--animate-example: example var(--duration) infinite linear;
+
+@keyframes example {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+```
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Props
+
+| Prop    | Type     | Default  | Description                |
+| ------- | -------- | -------- | -------------------------- |
+| `color` | `String` | `"blue"` | The color of the component |
+````
+
+### 5. Update Registry
+
+Export your component in `registry/registry-ui.ts`:
+
+```typescript
+export const ui: Registry = [
+  // ... existing components ...
+  {
+    name: "example-component",
+    type: "registry:ui",
+    title: "Example Component",
+    description:
+      "A versatile component that can be used to display various types of content such as text, images, or videos.",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "registry/magicui/example-component.tsx",
+        type: "registry:ui",
+      },
+    ],
+    // Add CSS variables for the component
+    cssVars: {
+      theme: {
+        "animate-example": "example var(--duration) infinite linear",
+      },
+    },
+    // Add CSS keyframes for the component
+    css: {
+      "@keyframes example": {
+        from: {
+          transform: "translateX(0)",
+        },
+        to: {
+          transform: "translateX(calc(-100% - var(--gap)))",
+        },
+      },
+    },
+  },
+];
+```
+
+And in `registry/registry-examples.ts`:
+
+```typescript
+export const examples: Registry = [
+  // ... existing examples ...
+  {
+    name: "example-component-demo",
+    description: "An example of the example-component",
+    type: "registry:example",
+    registryDependencies: ["example-component"],
+    files: [
+      {
+        path: "registry/example/example-component-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+];
+```
+
+### 6. Build Registry
+
+```bash
+pnpm build:registry
+```
+
+## Submitting Your Contribution
+
+Once you've completed your changes, open a pull request from your forked repo to the main repo [here](https://github.com/magicuidesign/magicui/compare).
+
+## Adding to the Showcase
+
+<Steps>
+
+<Step>Create your showcase MDX file</Step>
+
+Create your showcase in `content/showcase/website-name.mdx`:
+
+```mdx
+---
+title: website-name.com
+description: Website description
+image: /showcase/website-name.png
+href: https://website-name.com
+featured: true
+affiliation: YC S25, raised $10M
+---
+```
+
+<Step>Upload an image</Step>
+
+Upload an image of your site to `public/showcase/website-name.png`
+
+</Steps>
+
+## Getting Help
+
+For any help or questions, please open a new GitHub issue on the [Magic UI repository](https://github.com/magicuidesign/magicui).

@@ -1,0 +1,126 @@
+---
+title: Particles
+description: Interactive particle system with mouse-following behavior and customizable appearance.
+---
+
+A performant canvas-based particle system that responds to mouse movement with customizable colors, quantities, and physics.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/particles
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+```tsx title="components/ui/particles.tsx"
+"use client"
+
+import React, {
+  ComponentPropsWithoutRef,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
+import { cn } from "@/lib/utils"
+
+interface ParticlesProps extends ComponentPropsWithoutRef<"div"> {
+  className?: string
+  quantity?: number
+  staticity?: number
+  ease?: number
+  size?: number
+  refresh?: boolean
+  color?: string
+  vx?: number
+  vy?: number
+}
+
+export const Particles: React.FC<ParticlesProps> = ({
+  className = "",
+  quantity = 100,
+  staticity = 50,
+  ease = 50,
+  size = 0.4,
+  refresh = false,
+  color = "#ffffff",
+  vx = 0,
+  vy = 0,
+  ...props
+}) => {
+  // Component implementation
+}
+```
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Particles } from "@/components/ui/particles"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <Particles />
+    </div>
+  )
+}
+```
+
+### Custom Color
+
+```tsx
+import { Particles } from "@/components/ui/particles"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden bg-black">
+      <Particles color="#3b82f6" quantity={150} />
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | `-` | Additional CSS classes for the container |
+| `quantity` | `number` | `100` | Number of particles to render |
+| `staticity` | `number` | `50` | How static the particles are (lower = more movement) |
+| `ease` | `number` | `50` | Easing factor for particle movement |
+| `size` | `number` | `0.4` | Base size of particles in pixels |
+| `refresh` | `boolean` | `false` | Trigger to regenerate particles |
+| `color` | `string` | `"#ffffff"` | Color of particles (hex format) |
+| `vx` | `number` | `0` | X-axis velocity for particle drift |
+| `vy` | `number` | `0` | Y-axis velocity for particle drift |
+
+<Note>
+Particles automatically follow mouse movement and have magnetic attraction behavior. The component uses canvas for optimal performance.
+</Note>
+
+<Tip>
+Adjust `staticity` and `ease` to control how particles respond to mouse movement. Lower `staticity` makes particles move more freely, while higher `ease` creates smoother transitions.
+</Tip>

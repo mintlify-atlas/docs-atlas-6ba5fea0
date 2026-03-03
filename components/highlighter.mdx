@@ -1,0 +1,92 @@
+---
+title: Highlighter
+description: A text annotation component that mimics hand-drawn marker strokes
+---
+
+Highlight and annotate text with various styles including highlights, underlines, circles, and more.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/highlighter
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { Highlighter } from "@/components/ui/highlighter"
+
+export default function Example() {
+  return (
+    <p>
+      The{" "}
+      <Highlighter action="underline" color="#FF9800">
+        Magic UI Highlighter
+      </Highlighter>{" "}
+      makes important{" "}
+      <Highlighter action="highlight" color="#87CEFA">
+        text stand out
+      </Highlighter>{" "}
+      effortlessly.
+    </p>
+  )
+}
+```
+
+## Props
+
+<ResponseField name="children" type="React.ReactNode" required>
+  The content to be highlighted or annotated
+</ResponseField>
+
+<ResponseField name="action" type="AnnotationAction" default="'highlight'">
+  The type of annotation effect. Options: `highlight`, `underline`, `box`, `circle`, `strike-through`, `crossed-off`, `bracket`
+</ResponseField>
+
+<ResponseField name="color" type="string" default="'#ffd1dc'">
+  The color of the highlight or annotation
+</ResponseField>
+
+<ResponseField name="strokeWidth" type="number" default="1.5">
+  Width of the annotation stroke in pixels
+</ResponseField>
+
+<ResponseField name="animationDuration" type="number" default="600">
+  Duration of the drawing animation in milliseconds
+</ResponseField>
+
+<ResponseField name="iterations" type="number" default="2">
+  Number of times to draw the annotation (creates a sketchy effect when > 1)
+</ResponseField>
+
+<ResponseField name="padding" type="number" default="2">
+  Padding between the text and the annotation in pixels
+</ResponseField>
+
+<ResponseField name="multiline" type="boolean" default="true">
+  Whether to annotate across multiple lines or treat as single line
+</ResponseField>
+
+<ResponseField name="isView" type="boolean" default="false">
+  If true, animation starts only when element enters viewport
+</ResponseField>
+
+## Annotation Types
+
+- **highlight** - Background highlight
+- **underline** - Underline below text
+- **box** - Box around text
+- **circle** - Circle around text
+- **strike-through** - Line through text
+- **crossed-off** - X through text
+- **bracket** - Brackets around text
+
+## Credits
+
+Created by [@pratiyank](https://github.com/Pratiyankkumar)

@@ -1,0 +1,101 @@
+---
+title: Code Comparison
+description: A side-by-side code comparison component with syntax highlighting
+---
+
+Compare two code snippets side-by-side with beautiful syntax highlighting and diff indicators.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/code-comparison
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { CodeComparison } from "@/components/ui/code-comparison"
+
+const before = `function hello() {
+  console.log("old code")
+}`
+
+const after = `function hello() {
+  console.log("new code")
+}`
+
+export default function Example() {
+  return (
+    <CodeComparison
+      beforeCode={before}
+      afterCode={after}
+      language="typescript"
+      filename="example.ts"
+      lightTheme="github-light"
+      darkTheme="github-dark"
+    />
+  )
+}
+```
+
+## Props
+
+<ResponseField name="beforeCode" type="string" required>
+  Code snippet to display in the "before" section
+</ResponseField>
+
+<ResponseField name="afterCode" type="string" required>
+  Code snippet to display in the "after" section
+</ResponseField>
+
+<ResponseField name="language" type="string" required>
+  Programming language for syntax highlighting (e.g., "typescript", "javascript")
+</ResponseField>
+
+<ResponseField name="filename" type="string" required>
+  Filename to display in the header
+</ResponseField>
+
+<ResponseField name="lightTheme" type="string" default="'github-light'">
+  Shiki theme to use for light mode
+</ResponseField>
+
+<ResponseField name="darkTheme" type="string" default="'github-dark'">
+  Shiki theme to use for dark mode
+</ResponseField>
+
+<ResponseField name="highlightColor" type="string" default="'rgba(101, 117, 133, 0.16)'">
+  Color for highlighting code lines
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply
+</ResponseField>
+
+## Features
+
+- Side-by-side code comparison
+- Syntax highlighting via Shiki
+- Diff notation support (add/remove lines)
+- Focus mode for specific lines
+- Theme-aware (light/dark mode)
+- Responsive layout
+- Line-by-line highlighting
+- VS separator indicator
+
+## Notation Support
+
+The component supports Shiki transformers for:
+- Diff notation (`// [!code ++]`, `// [!code --]`)
+- Focus notation (`// [!code focus]`)
+- Highlight notation (`// [!code highlight]`)
+
+## Credits
+
+Created by [dillionverma](https://github.com/dillionverma)

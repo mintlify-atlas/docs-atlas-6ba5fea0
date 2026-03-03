@@ -1,0 +1,112 @@
+---
+title: Dotted Map
+description: An SVG-based dotted world map with customizable markers
+---
+
+Display a beautiful dotted world map with location markers, perfect for showing global presence.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/dotted-map
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { DottedMap } from "@/components/ui/dotted-map"
+
+const markers = [
+  { lat: 40.7128, lng: -74.006 }, // New York
+  { lat: 51.5074, lng: -0.1278 }, // London
+]
+
+export default function Example() {
+  return (
+    <div className="relative h-[400px] w-full overflow-hidden rounded-xl border">
+      <DottedMap markers={markers} />
+    </div>
+  )
+}
+```
+
+## Props
+
+<ResponseField name="width" type="number" default="150">
+  Width of the SVG map
+</ResponseField>
+
+<ResponseField name="height" type="number" default="75">
+  Height of the SVG map
+</ResponseField>
+
+<ResponseField name="mapSamples" type="number" default="5000">
+  Number of sample points for map generation (affects detail level)
+</ResponseField>
+
+<ResponseField name="markers" type="Marker[]" default="[]">
+  Array of location markers to display on the map
+</ResponseField>
+
+<ResponseField name="dotColor" type="string">
+  Color of the map dots (uses currentColor if not set)
+</ResponseField>
+
+<ResponseField name="markerColor" type="string" default="'#FF6900'">
+  Color of the location markers
+</ResponseField>
+
+<ResponseField name="dotRadius" type="number" default="0.22">
+  Radius of individual map dots
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes applied to the SVG
+</ResponseField>
+
+<ResponseField name="style" type="React.CSSProperties">
+  Inline styles merged into the SVG
+</ResponseField>
+
+## Marker Object
+
+```typescript
+interface Marker {
+  lat: number
+  lng: number
+  size?: number
+}
+```
+
+## Examples
+
+### Smaller Dots
+
+```tsx
+<DottedMap dotRadius={0.15} />
+```
+
+### Custom Colors
+
+```tsx
+<DottedMap dotColor="#3B82F6" markerColor="#EF4444" />
+```
+
+## Features
+
+- SVG-based for crisp rendering
+- Customizable dot density
+- Location markers with coordinates
+- Responsive sizing
+- Color customization
+- Staggered dot pattern for visual appeal
+
+## Credits
+
+Created by [dillionverma](https://github.com/dillionverma)

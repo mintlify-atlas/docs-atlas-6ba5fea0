@@ -1,0 +1,113 @@
+---
+title: Hero Video Dialog
+description: A beautiful video dialog component with multiple animation styles
+---
+
+Display videos in an elegant dialog overlay with smooth entrance and exit animations.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/hero-video-dialog
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { HeroVideoDialog } from "@/components/ui/hero-video-dialog"
+
+export default function Example() {
+  return (
+    <HeroVideoDialog
+      animationStyle="from-center"
+      videoSrc="https://www.youtube.com/embed/dQw4w9WgXcQ"
+      thumbnailSrc="/video-thumbnail.jpg"
+      thumbnailAlt="Video preview"
+    />
+  )
+}
+```
+
+## Props
+
+<ResponseField name="videoSrc" type="string" required>
+  URL of the video to be played (use embed URLs for YouTube)
+</ResponseField>
+
+<ResponseField name="thumbnailSrc" type="string" required>
+  URL of the thumbnail image
+</ResponseField>
+
+<ResponseField name="thumbnailAlt" type="string" default="'Video thumbnail'">
+  Alt text for the thumbnail image
+</ResponseField>
+
+<ResponseField name="animationStyle" type="AnimationStyle" default="'from-center'">
+  Animation style for the dialog entrance and exit
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply
+</ResponseField>
+
+## Animation Styles
+
+The `animationStyle` prop accepts the following values:
+
+- `from-bottom` - Slides in from bottom, exits to bottom
+- `from-center` - Scales up from center, scales down to center
+- `from-top` - Slides in from top, exits to top
+- `from-left` - Slides in from left, exits to left
+- `from-right` - Slides in from right, exits to right
+- `fade` - Simple fade in and out
+- `top-in-bottom-out` - Slides in from top, exits to bottom
+- `left-in-right-out` - Slides in from left, exits to right
+
+## Examples
+
+### Top-in-bottom-out Animation
+
+```tsx
+<HeroVideoDialog
+  animationStyle="top-in-bottom-out"
+  videoSrc="https://www.youtube.com/embed/example"
+  thumbnailSrc="/thumbnail.jpg"
+/>
+```
+
+### From Center (Default)
+
+```tsx
+<HeroVideoDialog
+  animationStyle="from-center"
+  videoSrc="https://www.youtube.com/embed/example"
+  thumbnailSrc="/thumbnail.jpg"
+/>
+```
+
+## Features
+
+- Multiple animation presets
+- Smooth spring-based animations
+- Backdrop blur effect
+- Click or keyboard to close (Escape, Enter, Space)
+- Responsive design
+- YouTube embed support
+- Hover effects on thumbnail
+- Accessible controls
+
+## Notes
+
+- For YouTube videos, use the embed URL format
+- Dialog closes on backdrop click or keyboard shortcuts
+- Thumbnail shows hover effect with play button
+
+## Credits
+
+Created by [dillionverma](https://github.com/dillionverma)

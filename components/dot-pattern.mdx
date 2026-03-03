@@ -1,0 +1,122 @@
+---
+title: Dot Pattern
+description: A background dot pattern made with SVGs, fully customizable using Tailwind CSS.
+---
+
+A customizable SVG dot pattern that can be used as a background element with optional glowing animation effects.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/dot-pattern
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+```tsx title="components/ui/dot-pattern.tsx"
+"use client"
+
+import React, { useEffect, useId, useRef, useState } from "react"
+import { motion } from "motion/react"
+import { cn } from "@/lib/utils"
+
+interface DotPatternProps extends React.SVGProps<SVGSVGElement> {
+  width?: number
+  height?: number
+  x?: number
+  y?: number
+  cx?: number
+  cy?: number
+  cr?: number
+  className?: string
+  glow?: boolean
+}
+
+export function DotPattern({
+  width = 16,
+  height = 16,
+  x = 0,
+  y = 0,
+  cx = 1,
+  cy = 1,
+  cr = 1,
+  className,
+  glow = false,
+  ...props
+}: DotPatternProps) {
+  // Component implementation
+}
+```
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { DotPattern } from "@/components/ui/dot-pattern"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <DotPattern />
+    </div>
+  )
+}
+```
+
+### With Glow Effect
+
+```tsx
+import { DotPattern } from "@/components/ui/dot-pattern"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <DotPattern glow className="text-blue-500" />
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `width` | `number` | `16` | Horizontal spacing between dots |
+| `height` | `number` | `16` | Vertical spacing between dots |
+| `x` | `number` | `0` | X-offset of the entire pattern |
+| `y` | `number` | `0` | Y-offset of the entire pattern |
+| `cx` | `number` | `1` | X-offset of individual dots |
+| `cy` | `number` | `1` | Y-offset of individual dots |
+| `cr` | `number` | `1` | Radius of each dot |
+| `className` | `string` | `-` | Additional CSS classes for the SVG container |
+| `glow` | `boolean` | `false` | Whether dots should have a glowing animation effect |
+
+<Tip>
+Control the dot color using text color utility classes like `text-neutral-400` or `text-blue-500`.
+</Tip>
+
+<Note>
+The component automatically responds to container size changes and adjusts the number of dots accordingly.
+</Note>

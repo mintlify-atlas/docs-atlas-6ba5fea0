@@ -1,0 +1,86 @@
+---
+title: Safari
+description: A Safari browser window mockup for showcasing websites and content
+---
+
+A pixel-perfect Safari browser mockup component for displaying screenshots, images, or videos.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/safari
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { Safari } from "@/components/ui/safari"
+
+export default function Example() {
+  return <Safari url="https://magicui.design" imageSrc="/screenshot.png" />
+}
+```
+
+## Props
+
+<ResponseField name="url" type="string">
+  URL to display in the Safari address bar
+</ResponseField>
+
+<ResponseField name="imageSrc" type="string">
+  Source URL of the image to display in the browser window
+</ResponseField>
+
+<ResponseField name="videoSrc" type="string">
+  Source URL of the video to display (takes precedence over imageSrc)
+</ResponseField>
+
+<ResponseField name="mode" type="'default' | 'simple'" default="'default'">
+  Display mode - 'default' shows full browser chrome, 'simple' shows minimal UI
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes applied to the wrapper div
+</ResponseField>
+
+<ResponseField name="style" type="React.CSSProperties">
+  Inline styles applied to the wrapper div
+</ResponseField>
+
+## Examples
+
+### With Image
+
+```tsx
+<Safari url="https://example.com" imageSrc="/screenshot.png" />
+```
+
+### With Video
+
+```tsx
+<Safari url="https://example.com" videoSrc="/demo.mp4" />
+```
+
+### Simple Mode
+
+```tsx
+<Safari url="https://example.com" mode="simple" imageSrc="/screenshot.png" />
+```
+
+## Notes
+
+- Component maintains a 1203:753 aspect ratio
+- Size is controlled by the wrapper div, not props
+- Screen area is masked only when media is provided
+- Videos render as DOM overlay for iOS compatibility
+- Accepts all standard HTMLDivElement props
+
+## Credits
+
+Created by [dillionverma](https://github.com/dillionverma) and [Yeom-JinHo](https://github.com/Yeom-JinHo)

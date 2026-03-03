@@ -1,122 +1,158 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Magic UI",
+  "theme": "willow",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#9E7AFF",
+    "light": "#FE8BBB",
+    "dark": "#7C3AED"
   },
-  "favicon": "/favicon.svg",
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/Max-Samson/magicui"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/Max-Samson/magicui"
+    }
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Get Started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "introduction",
+              "installation",
+              "mcp-integration"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Text Components",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "components/animated-gradient-text",
+              "components/animated-shiny-text",
+              "components/aurora-text",
+              "components/blur-fade",
+              "components/comic-text",
+              "components/hyper-text",
+              "components/line-shadow-text",
+              "components/morphing-text",
+              "components/sparkles-text",
+              "components/spinning-text",
+              "components/text-reveal",
+              "components/typing-animation",
+              "components/video-text",
+              "components/word-rotate"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Background Components",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "components/animated-grid-pattern",
+              "components/dot-pattern",
+              "components/flickering-grid",
+              "components/grid-pattern",
+              "components/interactive-grid-pattern",
+              "components/meteors",
+              "components/particles",
+              "components/progressive-blur",
+              "components/retro-grid",
+              "components/ripple",
+              "components/striped-pattern",
+              "components/warp-background"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Card & Container Components",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "components/bento-grid",
+              "components/border-beam",
+              "components/magic-card",
+              "components/neon-gradient-card"
+            ]
+          },
+          {
+            "group": "Animation & Effects",
+            "pages": [
+              "components/animated-beam",
+              "components/animated-circular-progress-bar",
+              "components/animated-list",
+              "components/confetti",
+              "components/cool-mode",
+              "components/lens",
+              "components/number-ticker",
+              "components/orbiting-circles",
+              "components/pointer",
+              "components/scroll-progress",
+              "components/smooth-cursor"
+            ]
+          },
+          {
+            "group": "UI Elements",
+            "pages": [
+              "components/animated-theme-toggler",
+              "components/avatar-circles",
+              "components/dock",
+              "components/highlighter",
+              "components/marquee",
+              "components/shimmer-button",
+              "components/safari",
+              "components/shine-border",
+              "components/tweet-card"
+            ]
+          },
+          {
+            "group": "Media & Visualization",
+            "pages": [
+              "components/android",
+              "components/code-comparison",
+              "components/dotted-map",
+              "components/file-tree",
+              "components/globe",
+              "components/hero-video-dialog",
+              "components/icon-cloud",
+              "components/iphone"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Templates",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Landing Pages",
             "pages": [
-              "api-reference/introduction"
+              "templates/overview",
+              "templates/saas",
+              "templates/startup",
+              "templates/portfolio",
+              "templates/blog",
+              "templates/agent",
+              "templates/devtool",
+              "templates/mobile",
+              "templates/codeforge",
+              "templates/changelog"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
           {
-            "group": "Endpoint examples",
+            "group": "About",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "story",
+              "contributing"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    ]
   }
 }

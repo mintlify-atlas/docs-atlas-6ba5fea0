@@ -1,0 +1,99 @@
+---
+title: Tweet Card
+description: Display beautiful, embedded tweet cards with full support for media and metadata
+---
+
+A polished tweet card component built on top of react-tweet for displaying Twitter/X posts.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/tweet-card
+# Also install react-tweet
+npm install react-tweet
+```
+
+```bash Manual
+# Install dependency first
+npm install react-tweet
+# Then copy the component code
+```
+</CodeGroup>
+
+## Usage
+
+### Server Component (Next.js 13+)
+
+```tsx
+import { TweetCard } from "@/components/ui/tweet-card"
+
+export default async function Example() {
+  return <TweetCard id="1441032681968212480" />
+}
+```
+
+### Client Component
+
+```tsx
+"use client"
+
+import { ClientTweetCard } from "@/components/ui/client-tweet-card"
+
+export default function Example() {
+  return <ClientTweetCard id="1441032681968212480" />
+}
+```
+
+## Props
+
+### TweetCard (Server)
+
+<ResponseField name="id" type="string" required>
+  The Twitter/X tweet ID to display
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply
+</ResponseField>
+
+### ClientTweetCard (Client)
+
+<ResponseField name="id" type="string" required>
+  The Twitter/X tweet ID to display
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply
+</ResponseField>
+
+## Features
+
+- Server-side and client-side rendering support
+- Displays tweet text with proper entity formatting
+- Shows author information and verification badges
+- Supports images, videos, and carousels
+- URL preview cards
+- Responsive design
+- Dark mode compatible
+
+## Examples
+
+### With Image Carousel
+
+Tweets with multiple images display as a scrollable carousel.
+
+### With URL Preview
+
+Tweets with links show rich preview cards.
+
+## Notes
+
+- Built on top of [React Tweet](https://react-tweet.vercel.app/)
+- Automatically handles tweet loading and errors
+- Shows skeleton loader while fetching
+- Displays "Tweet not found" for invalid IDs
+
+## Credits
+
+Created by [dillionverma](https://github.com/dillionverma)

@@ -1,0 +1,62 @@
+---
+title: Animated Theme Toggler
+description: An animated theme toggler component with smooth transitions using View Transitions API
+---
+
+A beautifully animated theme toggler that smoothly transitions between light and dark modes using the View Transitions API.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/animated-theme-toggler
+```
+
+```bash Manual
+# Copy the component code and add required CSS
+```
+</CodeGroup>
+
+### Required CSS
+
+Add the following to your global CSS file:
+
+```css
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+```
+
+## Usage
+
+```tsx
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
+
+export default function Example() {
+  return <AnimatedThemeToggler />
+}
+```
+
+## Props
+
+<ResponseField name="className" type="string" default="">
+  Additional CSS classes to apply to the button
+</ResponseField>
+
+<ResponseField name="duration" type="number" default="400">
+  Duration of the theme transition animation in milliseconds
+</ResponseField>
+
+## Features
+
+- Smooth circular reveal animation during theme transitions
+- Automatic theme detection and sync with document theme
+- Persists theme preference to localStorage
+- Uses View Transitions API for modern browsers
+- Fully accessible with screen reader support
+
+## Credits
+
+Created by [Nazam Kalsi](https://nazam-kalsi-portfolio.vercel.app)

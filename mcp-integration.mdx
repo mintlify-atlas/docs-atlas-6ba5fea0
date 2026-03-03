@@ -1,0 +1,217 @@
+---
+title: MCP integration
+description: Learn how to use the Model Context Protocol with Magic UI for AI-assisted development.
+---
+
+Magic UI now has an official MCP server that enables AI-assisted IDEs to have direct access to all Magic UI components.
+
+## What is MCP?
+
+[MCP (Model Context Protocol)](https://modelcontextprotocol.com/) is an open protocol that standardizes how applications provide context to LLMs.
+
+This is useful for Magic UI because you can now give your AI-assisted IDE direct access to all Magic UI components so that it can generate code with minimal errors.
+
+<Tip>
+  With MCP integration, your AI assistant can automatically reference component APIs, props, and examples when generating code.
+</Tip>
+
+## Installation
+
+Choose your installation method based on your IDE:
+
+<Tabs>
+  <Tab title="CLI (recommended)">
+    The fastest way to set up the MCP server is using the Magic UI CLI. It will automatically detect and configure your IDE.
+
+    <Steps>
+
+    ### Run the install command
+
+    Select your IDE and run the corresponding command:
+
+    <CodeGroup>
+
+    ```bash Cursor
+    npx @magicuidesign/cli@latest install cursor
+    ```
+
+    ```bash Windsurf
+    npx @magicuidesign/cli@latest install windsurf
+    ```
+
+    ```bash Claude Desktop
+    npx @magicuidesign/cli@latest install claude
+    ```
+
+    ```bash Cline
+    npx @magicuidesign/cli@latest install cline
+    ```
+
+    ```bash Roo-Cline
+    npx @magicuidesign/cli@latest install roo-cline
+    ```
+
+    </CodeGroup>
+
+    The CLI will automatically:
+    - Locate your IDE's MCP configuration file
+    - Add the Magic UI MCP server configuration
+    - Verify the installation
+
+    ### Restart your IDE
+
+    After installation, restart your IDE to activate the MCP server.
+
+    </Steps>
+
+  </Tab>
+  <Tab title="Manual">
+    If you prefer manual configuration or the CLI doesn't support your setup:
+
+    <Steps>
+
+    ### Locate your MCP config file
+
+    Find your IDE's MCP configuration file:
+
+    - **Cursor**: `~/.cursor/mcp.json`
+    - **Windsurf**: `~/.windsurf/mcp.json`
+    - **Claude Desktop**: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
+    - **Cline/Roo-Cline**: `.vscode/settings.json` in your project
+
+    ### Add the MCP server
+
+    Add the following configuration to your MCP config file:
+
+    ```json
+    {
+      "mcpServers": {
+        "@magicuidesign/mcp": {
+          "command": "npx",
+          "args": ["-y", "@magicuidesign/mcp@latest"]
+        }
+      }
+    }
+    ```
+
+    <Warning>
+      Make sure the JSON is valid. If you already have an `mcpServers` object, add the `@magicuidesign/mcp` entry to it.
+    </Warning>
+
+    ### Restart your IDE
+
+    Restart your IDE to load the new MCP server configuration.
+
+    </Steps>
+
+  </Tab>
+</Tabs>
+
+## Usage
+
+Once installed, you can ask your AI assistant to use any Magic UI component. The MCP server provides the assistant with:
+
+- Component documentation and descriptions
+- Complete prop type definitions
+- Usage examples and code snippets
+- Installation instructions
+
+### Example prompts
+
+Here are some example prompts you can use with your AI assistant:
+
+<CodeGroup>
+
+```text Text animation
+Add a blur fade text animation to the hero section
+```
+
+```text Background
+Add a grid background with a subtle dot pattern
+```
+
+```text Logos
+Add a vertical marquee of company logos
+```
+
+```text Interactive
+Create a dock component like macOS with app icons
+```
+
+```text Globe
+Add an interactive 3D globe showing user locations
+```
+
+</CodeGroup>
+
+The AI will automatically:
+- Reference the correct component from Magic UI
+- Use proper TypeScript types
+- Include necessary imports
+- Apply appropriate props and styling
+
+## Verification
+
+To verify the MCP server is working correctly:
+
+<Steps>
+
+### Check MCP status
+
+In your IDE, check that the Magic UI MCP server appears in the list of active MCP servers.
+
+### Test with a prompt
+
+Ask your AI assistant: "Show me how to use the Magic UI blur fade component"
+
+The assistant should provide accurate code with proper imports and usage.
+
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="MCP server not appearing in IDE">
+    - Verify the configuration file path is correct for your IDE
+    - Check that the JSON syntax is valid
+    - Restart your IDE completely (not just reload)
+    - Check IDE console for error messages
+  </Accordion>
+  
+  <Accordion title="AI assistant not using Magic UI components">
+    - Explicitly mention "Magic UI" in your prompt
+    - Ask the assistant to "use the MCP server"
+    - Verify the MCP server is active in your IDE settings
+  </Accordion>
+  
+  <Accordion title="Installation fails with CLI">
+    - Make sure you have Node.js 18+ installed
+    - Try running with `--verbose` flag for detailed logs
+    - Fall back to manual installation
+  </Accordion>
+</AccordionGroup>
+
+## Supported IDEs
+
+The Magic UI MCP server currently supports:
+
+- **Cursor** - AI-first code editor
+- **Windsurf** - Codeium's AI IDE
+- **Claude Desktop** - Anthropic's desktop app
+- **Cline** - VS Code extension
+- **Roo-Cline** - Enhanced Cline fork
+
+<Note>
+  More IDEs will be supported as MCP adoption grows. The manual installation method works with any MCP-compatible application.
+</Note>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Browse components" icon="grid" href="/components">
+    Explore all available Magic UI components
+  </Card>
+  <Card title="Learn MCP" icon="book" href="https://modelcontextprotocol.com">
+    Read more about the Model Context Protocol
+  </Card>
+</CardGroup>

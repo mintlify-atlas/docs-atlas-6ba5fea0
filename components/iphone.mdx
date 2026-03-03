@@ -1,0 +1,85 @@
+---
+title: iPhone
+description: A realistic iPhone mockup for showcasing mobile app designs
+---
+
+Display your iOS app screenshots and videos in a pixel-perfect iPhone frame.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/iphone
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { Iphone } from "@/components/ui/iphone"
+
+export default function Example() {
+  return <Iphone src="/app-screenshot.png" />
+}
+```
+
+## Props
+
+<ResponseField name="src" type="string">
+  Source URL of the image to display in the iPhone screen
+</ResponseField>
+
+<ResponseField name="videoSrc" type="string">
+  Source URL of the video to display (takes precedence over src)
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes applied to the wrapper div
+</ResponseField>
+
+<ResponseField name="style" type="React.CSSProperties">
+  Inline styles applied to the wrapper div
+</ResponseField>
+
+The component also accepts all standard HTMLDivElement props.
+
+## Examples
+
+### With Image
+
+```tsx
+<Iphone src="/screenshot.png" />
+```
+
+### With Video
+
+```tsx
+<Iphone videoSrc="/app-demo.mp4" />
+```
+
+## Features
+
+- Realistic iPhone frame with accurate proportions
+- Support for images and videos
+- Auto-playing, looping videos
+- Maintains 433:882 aspect ratio
+- Rounded corners matching iPhone design
+- Dynamic island representation
+- Dark mode support
+
+## Notes
+
+- Component enforces 433:882 aspect ratio
+- Size controlled by wrapper div, not props
+- Screen area masked only when media is provided
+- Videos render as DOM overlay for iOS compatibility
+- Without media, only the frame is rendered
+- Accepts all standard HTMLDivElement props
+
+## Credits
+
+Created by [dillionverma](https://github.com/dillionverma) and [Yeom-JinHo](https://github.com/Yeom-JinHo)

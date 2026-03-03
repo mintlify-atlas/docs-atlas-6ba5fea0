@@ -1,0 +1,88 @@
+---
+title: Android
+description: A mockup of an Android device for showcasing mobile apps and designs
+---
+
+Display your mobile app screenshots and videos in a realistic Android device frame.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/android
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { Android } from "@/components/ui/android"
+
+export default function Example() {
+  return <Android src="/app-screenshot.png" />
+}
+```
+
+## Props
+
+<ResponseField name="width" type="number" default="433">
+  Width of the Android device frame
+</ResponseField>
+
+<ResponseField name="height" type="number" default="882">
+  Height of the Android device frame
+</ResponseField>
+
+<ResponseField name="src" type="string">
+  Source URL of the image to display in the device screen
+</ResponseField>
+
+<ResponseField name="videoSrc" type="string">
+  Source URL of the video to display (takes precedence over src)
+</ResponseField>
+
+The component also accepts all standard SVG element props.
+
+## Examples
+
+### With Image
+
+```tsx
+<Android src="/screenshot.png" />
+```
+
+### With Video
+
+```tsx
+<Android videoSrc="/app-demo.mp4" />
+```
+
+### Custom Size
+
+```tsx
+<Android width={300} height={612} src="/screenshot.png" />
+```
+
+## Features
+
+- Realistic Android device frame
+- Support for images and videos
+- Customizable dimensions
+- Auto-playing, looping videos
+- Maintains proper aspect ratio
+- SVG-based for crisp rendering
+
+## Notes
+
+- Videos auto-play, loop, and are muted by default
+- Component uses SVG for the device frame
+- Screen content is clipped to device shape
+- Supports dark mode
+
+## Credits
+
+Created by [dillionverma](https://github.com/dillionverma)

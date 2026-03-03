@@ -1,0 +1,133 @@
+---
+title: Retro Grid
+description: An animated scrolling retro grid effect.
+---
+
+A nostalgic retro-style grid background with animated scrolling effect and 3D perspective.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/retro-grid
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+```tsx title="components/ui/retro-grid.tsx"
+import { cn } from "@/lib/utils"
+
+interface RetroGridProps extends React.HTMLAttributes<HTMLDivElement> {
+  className?: string
+  angle?: number
+  cellSize?: number
+  opacity?: number
+  lightLineColor?: string
+  darkLineColor?: string
+}
+
+export function RetroGrid({
+  className,
+  angle = 65,
+  cellSize = 60,
+  opacity = 0.5,
+  lightLineColor = "gray",
+  darkLineColor = "gray",
+  ...props
+}: RetroGridProps) {
+  // Component implementation
+}
+```
+
+<Step>Update the import paths to match your project setup.</Step>
+
+<Step>Add the required CSS animations</Step>
+
+Add the following animations to your global CSS file:
+
+```css title="app/globals.css"
+@theme inline {
+  --animate-grid: grid 15s linear infinite;
+
+  @keyframes grid {
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+```
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { RetroGrid } from "@/components/ui/retro-grid"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <RetroGrid />
+    </div>
+  )
+}
+```
+
+### Custom Styling
+
+```tsx
+import { RetroGrid } from "@/components/ui/retro-grid"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <RetroGrid 
+        angle={45}
+        cellSize={80}
+        opacity={0.7}
+        lightLineColor="blue"
+      />
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | `-` | Additional CSS classes for the grid container |
+| `angle` | `number` | `65` | Rotation angle of the grid in degrees |
+| `cellSize` | `number` | `60` | Grid cell size in pixels |
+| `opacity` | `number` | `0.5` | Grid opacity value between 0 and 1 |
+| `lightLineColor` | `string` | `"gray"` | Grid line color in light mode |
+| `darkLineColor` | `string` | `"gray"` | Grid line color in dark mode |
+
+<Note>
+The grid automatically animates with a scrolling effect using CSS animations and includes a gradient fade at the bottom.
+</Note>
+
+<Tip>
+Adjust the `angle` prop to change the perspective of the grid. Lower angles create a more dramatic 3D effect.
+</Tip>

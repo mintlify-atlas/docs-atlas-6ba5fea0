@@ -1,0 +1,113 @@
+---
+title: Animated Grid Pattern
+description: A animated background grid pattern made with SVGs, fully customizable using Tailwind CSS.
+---
+
+An animated SVG grid pattern that creates a dynamic background effect with randomly appearing and fading squares.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/animated-grid-pattern
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+```tsx title="components/ui/animated-grid-pattern.tsx"
+"use client"
+
+import {
+  ComponentPropsWithoutRef,
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react"
+import { motion } from "motion/react"
+import { cn } from "@/lib/utils"
+
+export interface AnimatedGridPatternProps extends ComponentPropsWithoutRef<"svg"> {
+  width?: number
+  height?: number
+  x?: number
+  y?: number
+  strokeDasharray?: number
+  numSquares?: number
+  maxOpacity?: number
+  duration?: number
+  repeatDelay?: number
+}
+
+export function AnimatedGridPattern({
+  width = 40,
+  height = 40,
+  x = -1,
+  y = -1,
+  strokeDasharray = 0,
+  numSquares = 50,
+  className,
+  maxOpacity = 0.5,
+  duration = 4,
+  repeatDelay = 0.5,
+  ...props
+}: AnimatedGridPatternProps) {
+  // Component implementation
+}
+```
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <AnimatedGridPattern />
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | `-` | Additional classes to be added to the pattern |
+| `width` | `number` | `40` | Width of each grid cell |
+| `height` | `number` | `40` | Height of each grid cell |
+| `x` | `number` | `-1` | X offset of the pattern |
+| `y` | `number` | `-1` | Y offset of the pattern |
+| `strokeDasharray` | `number` | `0` | Stroke dash array of the grid lines |
+| `numSquares` | `number` | `50` | Number of animated squares in the pattern |
+| `maxOpacity` | `number` | `0.5` | Maximum opacity of the animated squares |
+| `duration` | `number` | `4` | Duration of the fade animation in seconds |
+| `repeatDelay` | `number` | `0.5` | Delay before repeating the animation in seconds |
+
+<Note>
+The component automatically adapts to the size of its container using ResizeObserver.
+</Note>

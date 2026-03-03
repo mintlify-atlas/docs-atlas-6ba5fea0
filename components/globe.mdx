@@ -1,0 +1,97 @@
+---
+title: Globe
+description: An interactive, auto-rotating 3D globe powered by WebGL
+---
+
+A highly performant 3D globe component built with Cobe, featuring smooth rotation and location markers.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/globe
+# Also install dependencies
+npm install cobe motion
+```
+
+```bash Manual
+# Install dependencies first
+npm install cobe motion
+# Then copy the component code
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { Globe } from "@/components/ui/globe"
+
+export default function Example() {
+  return (
+    <div className="relative h-[600px] w-full">
+      <Globe />
+    </div>
+  )
+}
+```
+
+## Props
+
+<ResponseField name="className" type="string">
+  CSS classes for the component wrapper
+</ResponseField>
+
+<ResponseField name="config" type="COBEOptions" default="{}">
+  Configuration options for the globe. See [Cobe docs](https://cobe.vercel.app/docs/api) for all options
+</ResponseField>
+
+## Configuration Options
+
+The `config` prop accepts all [Cobe configuration options](https://cobe.vercel.app/docs/api), including:
+
+- `phi` - Rotation angle around the vertical axis
+- `theta` - Rotation angle around the horizontal axis
+- `dark` - Darkness level (0-1)
+- `diffuse` - Diffuse lighting intensity
+- `mapSamples` - Number of samples for map rendering
+- `mapBrightness` - Brightness of the map
+- `baseColor` - RGB array for base color
+- `markerColor` - RGB array for marker color
+- `glowColor` - RGB array for glow color
+- `markers` - Array of location markers
+
+## Example with Custom Config
+
+```tsx
+import { Globe } from "@/components/ui/globe"
+
+const config = {
+  width: 800,
+  height: 800,
+  mapBrightness: 1.5,
+  baseColor: [0.5, 0.5, 1],
+  markerColor: [1, 0.5, 0.2],
+  markers: [
+    { location: [40.7128, -74.006], size: 0.1 },
+    { location: [51.5074, -0.1278], size: 0.08 },
+  ],
+}
+
+export default function Example() {
+  return <Globe config={config} />
+}
+```
+
+## Features
+
+- WebGL-powered 3D rendering
+- Auto-rotation with physics
+- Interactive dragging
+- Location markers
+- Customizable colors and appearance
+- Smooth animations
+- Responsive sizing
+
+## Credits
+
+Built on top of [Cobe](https://cobe.vercel.app/docs/api) by [dillionverma](https://github.com/dillionverma)

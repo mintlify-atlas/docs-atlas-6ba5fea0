@@ -1,0 +1,118 @@
+---
+title: File Tree
+description: Display folder and file structures with collapsible navigation
+---
+
+A component for showcasing directory structures with expandable folders and selectable files.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/file-tree
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { File, Folder, Tree } from "@/components/ui/file-tree"
+
+export default function Example() {
+  return (
+    <Tree>
+      <Folder element="src" value="src">
+        <Folder element="components" value="components">
+          <File value="button.tsx">button.tsx</File>
+          <File value="card.tsx">card.tsx</File>
+        </Folder>
+        <File value="index.tsx">index.tsx</File>
+      </Folder>
+    </Tree>
+  )
+}
+```
+
+## Tree Props
+
+<ResponseField name="initialSelectedId" type="string">
+  ID of the initially selected item
+</ResponseField>
+
+<ResponseField name="indicator" type="boolean" default="true">
+  Whether to show the tree indicator line
+</ResponseField>
+
+<ResponseField name="elements" type="TreeViewElement[]">
+  Array of tree view elements (alternative to children)
+</ResponseField>
+
+<ResponseField name="initialExpandedItems" type="string[]">
+  Array of IDs for items that should be initially expanded
+</ResponseField>
+
+<ResponseField name="openIcon" type="React.ReactNode">
+  Custom icon for open folders
+</ResponseField>
+
+<ResponseField name="closeIcon" type="React.ReactNode">
+  Custom icon for closed folders
+</ResponseField>
+
+<ResponseField name="dir" type="'rtl' | 'ltr'" default="'ltr'">
+  Text direction of the tree
+</ResponseField>
+
+## Folder Props
+
+<ResponseField name="element" type="string" required>
+  Name of the folder to display
+</ResponseField>
+
+<ResponseField name="value" type="string" required>
+  Unique identifier for the folder
+</ResponseField>
+
+<ResponseField name="isSelectable" type="boolean" default="true">
+  Whether the folder can be selected
+</ResponseField>
+
+<ResponseField name="isSelect" type="boolean">
+  Whether the folder is currently selected
+</ResponseField>
+
+## File Props
+
+<ResponseField name="value" type="string" required>
+  Unique identifier for the file
+</ResponseField>
+
+<ResponseField name="isSelectable" type="boolean" default="true">
+  Whether the file can be selected
+</ResponseField>
+
+<ResponseField name="isSelect" type="boolean">
+  Whether the file is currently selected
+</ResponseField>
+
+<ResponseField name="fileIcon" type="React.ReactNode">
+  Custom icon for the file
+</ResponseField>
+
+## Features
+
+- Collapsible folder navigation
+- Selectable files and folders
+- Tree indicator lines
+- RTL language support
+- Custom icons for files and folders
+- Keyboard accessible
+- Smooth animations
+
+## Credits
+
+Created by [dillionverma](https://github.com/dillionverma)

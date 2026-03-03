@@ -1,0 +1,115 @@
+---
+title: Striped Pattern
+description: A background striped pattern made with SVGs, fully customizable using Tailwind CSS.
+---
+
+A diagonal striped background pattern that can be customized with direction and styling using Tailwind CSS.
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/striped-pattern
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+```tsx title="components/ui/striped-pattern.tsx"
+import React, { useId } from "react"
+import { cn } from "@/lib/utils"
+
+interface StripedPatternProps extends React.SVGProps<SVGSVGElement> {
+  direction?: "left" | "right"
+}
+
+export function StripedPattern({
+  direction = "left",
+  className,
+  width = 10,
+  height = 10,
+  ...props
+}: StripedPatternProps) {
+  // Component implementation
+}
+```
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { StripedPattern } from "@/components/ui/striped-pattern"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <StripedPattern />
+    </div>
+  )
+}
+```
+
+### Right Direction
+
+```tsx
+import { StripedPattern } from "@/components/ui/striped-pattern"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <StripedPattern direction="right" />
+    </div>
+  )
+}
+```
+
+### Dashed Stroke
+
+```tsx
+import { StripedPattern } from "@/components/ui/striped-pattern"
+
+export default function Example() {
+  return (
+    <div className="relative h-[500px] w-full overflow-hidden">
+      <StripedPattern className="stroke-dashed" />
+    </div>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `direction` | `"left"` \| `"right"` | `"left"` | Direction of the diagonal stripes |
+| `width` | `number` | `10` | Width of the pattern cell |
+| `height` | `number` | `10` | Height of the pattern cell |
+| `className` | `string` | `-` | Additional CSS classes for the SVG element |
+
+<Tip>
+Control the stripe color using text color utility classes like `text-gray-400` in the className prop.
+</Tip>
+
+<Note>
+The pattern automatically fills the container and can be layered with other components.
+</Note>

@@ -1,0 +1,96 @@
+---
+title: Icon Cloud
+description: An interactive 3D rotating cloud of icons or images
+---
+
+Display a collection of icons or images in an interactive 3D sphere with smooth rotation and click interactions.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/icon-cloud
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+### With Images
+
+```tsx
+import { IconCloud } from "@/components/ui/icon-cloud"
+
+const images = [
+  "https://example.com/logo1.png",
+  "https://example.com/logo2.png",
+  "https://example.com/logo3.png",
+]
+
+export default function Example() {
+  return (
+    <div className="relative overflow-hidden">
+      <IconCloud images={images} />
+    </div>
+  )
+}
+```
+
+### With SVG Icons
+
+```tsx
+import { IconCloud } from "@/components/ui/icon-cloud"
+import { ReactIcon, NodeIcon, TypeScriptIcon } from "./icons"
+
+const icons = [<ReactIcon />, <NodeIcon />, <TypeScriptIcon />]
+
+export default function Example() {
+  return (
+    <div className="relative overflow-hidden">
+      <IconCloud icons={icons} />
+    </div>
+  )
+}
+```
+
+## Props
+
+<ResponseField name="icons" type="React.ReactNode[]" default="[]">
+  Array of React icon components to render in the cloud
+</ResponseField>
+
+<ResponseField name="images" type="string[]" default="[]">
+  Array of image URLs to render in the cloud
+</ResponseField>
+
+## Features
+
+- Interactive 3D rotation
+- Click icons to bring them to focus
+- Drag to rotate the sphere
+- Auto-rotation based on mouse position
+- Smooth animations with easing
+- Depth-based scaling and opacity
+- Support for both SVG icons and images
+- Canvas-based rendering for performance
+
+## Interaction
+
+- **Drag**: Click and drag to manually rotate the sphere
+- **Click Icon**: Click any icon to smoothly rotate it to the front
+- **Hover**: Move mouse to influence rotation speed and direction
+
+## Notes
+
+- Icons are distributed using Fibonacci sphere algorithm for even spacing
+- Canvas renders at 400x400px by default
+- Images are rendered as circles
+- Supports CORS for external images
+- Automatically pauses rotation when dragging
+
+## Credits
+
+Created by [dillionverma](https://github.com/dillionverma)

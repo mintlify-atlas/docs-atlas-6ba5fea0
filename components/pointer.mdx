@@ -1,0 +1,67 @@
+---
+title: Pointer
+date: 2025-02-17
+description: A component that displays a pointer when hovering over an element
+author: h3rmel
+published: true
+---
+
+<ComponentPreview name="pointer-demo-1" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @magicui/pointer
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="pointer" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Pointer } from "@/components/ui/pointer"
+```
+
+```tsx showLineNumbers
+<div className="relative">
+  <Pointer />
+  <div className="p-8">
+    <h1>Hover over this area</h1>
+    <p>The custom pointer will appear</p>
+  </div>
+</div>
+```
+
+## Props
+
+The `Pointer` component accepts all standard `HTMLMotionProps<"div">` props from Framer Motion, including:
+
+| Prop        | Type              | Default | Description                        |
+| ----------- | ----------------- | ------- | ---------------------------------- |
+| `className` | `string`          | `-`     | Additional CSS classes             |
+| `style`     | `CSSProperties`   | `-`     | Custom inline styles               |
+| `children`  | `React.ReactNode` | `-`     | Custom content to render as cursor |

@@ -1,0 +1,74 @@
+---
+title: Avatar Circles
+description: Display overlapping circles of user avatars with a count indicator
+---
+
+A component that displays user avatars in overlapping circles, perfect for showing team members or participants.
+
+## Installation
+
+<CodeGroup>
+```bash npm
+npx shadcn@latest add @magicui/avatar-circles
+```
+
+```bash Manual
+# Copy the component code from the source
+```
+</CodeGroup>
+
+## Usage
+
+```tsx
+import { AvatarCircles } from "@/components/ui/avatar-circles"
+
+const avatars = [
+  {
+    imageUrl: "https://avatars.githubusercontent.com/u/16860528",
+    profileUrl: "https://github.com/dillionverma",
+  },
+  {
+    imageUrl: "https://avatars.githubusercontent.com/u/20110627",
+    profileUrl: "https://github.com/tomonarifeehan",
+  },
+]
+
+export default function Example() {
+  return <AvatarCircles numPeople={99} avatarUrls={avatars} />
+}
+```
+
+## Props
+
+<ResponseField name="avatarUrls" type="Avatar[]" required>
+  Array of avatar objects containing `imageUrl` and `profileUrl`
+</ResponseField>
+
+<ResponseField name="numPeople" type="number">
+  Number to display in the final circle (typically for "+ more" indicator)
+</ResponseField>
+
+<ResponseField name="className" type="string">
+  Additional CSS classes to apply to the component
+</ResponseField>
+
+## Avatar Object
+
+```typescript
+interface Avatar {
+  imageUrl: string
+  profileUrl: string
+}
+```
+
+## Features
+
+- Overlapping circular avatar design
+- Clickable avatars linking to profiles
+- Optional count indicator for additional users
+- Responsive and accessible
+- RTL language support
+
+## Credits
+
+Created by [tomonarifeehan](https://github.com/tomonarifeehan)
